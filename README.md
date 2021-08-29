@@ -1,17 +1,19 @@
-# About this project
+# Outsite Full Stack Developer - coding test
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Installing Instructions
 
-## Running Instructions
+- Clone the project
+- Run `npm install` in `client folder` to install all the frontend dependencies
+- Add a file `client/.env` file
+- In `client/.env` define a variable REACT_APP_API_URL with your server endpoint (ex: `http://localhost:5000/`)
+- Run `npm install` in `server` to install all the backend dependencies
+- Add a file `server/.env` file
+- In `server/.env` define a variable REACT_APP_API_URL with your client endpoint (ex: `http://localhost:3000/`)
 
-In the project directory, you can run:
+**To run the server and the client**
 
-### `cd ./server & npm run dev`
+In the project root's directory, you can run:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-The server is running on port 5000.
+```sh
+$ cd server && npm run dev
+```

@@ -24,10 +24,10 @@ const getPropertiesByRegion = () => {
     var locations = db.properties.reduce((property, current) => {
         regions.forEach((region) => {
             if (!property[region] && current.region === region) {
-                property[region] = [{ name: current.wfContent.name, houseName: current.wfContent.houseName }]
+                property[region] = [{ id: current.id, name: current.wfContent.name, houseName: current.wfContent.houseName }]
             }
             else if (property[region] && current.region === region) {
-                property[region].push({ name: current.wfContent.name, houseName: current.wfContent.houseName });
+                property[region].push({ id: current.id, name: current.wfContent.name, houseName: current.wfContent.houseName});
             }
 
         });
@@ -47,11 +47,10 @@ propertyRoutes.get('/locations', (req, res) => {
     res.send({ locations: results });
 });
 
-/* app.get('/availability', (req, res) => {
-    const { property, checkIn, checkOut, guests } = req.body;
 
-    const results = getPropertiesByRegion()
-    res.send({ locations: results });
-}); */
+propertyRoutes.get('/space/:id', (req, res) => {
+    let space = db.properties.filter(property => property.id === req.params.id)[0]
+    res.send({ space: space });
+});
 
 module.exports = propertyRoutes;

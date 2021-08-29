@@ -1,17 +1,27 @@
-import { useEffect } from "react"
-import locationServices from "./services/locations"
-import './App.css';
+
+import { Switch, Route, Redirect, BrowserRouter as Router } from "react-router-dom";
+import './index.css';
+import Booking from "./pages/Booking";
+import Space from "./pages/Space";
+
 
 export const App = () => {
 
-  useEffect(() => {
-    locationServices.getProperties("Europe").then(res => console.log(res))
-    locationServices.getLocations().then(res => console.log(res))
-  }, [])
-
   return (
-    <div className="App">
-    </div>
+    <>
+      
+      <Router>
+        <Switch>
+          <Route exact path="/book-now/locations"
+            component={Booking}
+          />
+          <Route path={`/book-now/search`}
+            component={Space}
+          />
+          <Route path="/" render={() => <Redirect to="/book-now/locations" />}></Route>
+        </Switch>
+      </Router>
+    </>
   );
 }
 
