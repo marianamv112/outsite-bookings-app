@@ -4,7 +4,7 @@ import { useState } from 'react';
 import "react-dates/lib/css/_datepicker.css";
 import "./calendar-styles.css"
 import moment from 'moment';
-import momentRandom from '../../../server/node_modules/moment-random/src';
+import momentRandom from 'moment-random'
 
 const DatePicker = ({ startDate, endDate, onDatesChange }) => {
 
